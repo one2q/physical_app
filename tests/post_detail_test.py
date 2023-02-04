@@ -15,13 +15,12 @@ def test_post_detail(client):
         "id": post.pk,
         "name": "Test_name",
         "text": "test_text",
-	    "comments": [],
-	    "created_at": date.today().strftime("%Y-%m-%d"),
-	    "view_count": 1
+        "comments": [],
+        "created_at": date.today().strftime("%Y-%m-%d"),
+        "view_count": 1,
     }
 
     response = client.get(f"/post/{post.pk}/")
 
     assert response.status_code == 200
     assert response.data == expected_response
-
