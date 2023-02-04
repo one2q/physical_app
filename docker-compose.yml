@@ -1,17 +1,17 @@
+version: "3.9"
 services:
   db:
     image: postgres
-    volumes:
-      - .:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=docker
+    container_name: physical_db
+    env_file:
+      - ./.env
+    ports:
+      - 5432:5432
+
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/usr/src/app/
+    container_name: physical_app
+    command: bash entrypoint.sh
     ports:
       - 8000:8000
     env_file:
