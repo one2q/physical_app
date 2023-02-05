@@ -29,28 +29,27 @@
 
 - Django - 4.1.6
 - djangorestframework - 3.14.0
-- djangorestframework - 3.14.0
-- psycopg2 - 2.9.5
-- pytest-django - 4.5.2
-- python-dotenv - 0.21.1
-- requests - 2.28.2
-- drf-yasg - 1.21.4
+
 ### Запуск приложения
-1) git clone https://github.com/one2q/physical_app
+1) ```git clone https://github.com/one2q/physical_app```
 2) переименуйте .env.ci файл на .env
-3) запустите docker-compose up -d --build
+3) ```docker-compose up -d --build```
 4) http://127.0.0.1:8000
 
 ### Документация 
 - swagger  url http://127.0.0.1:8000/swagger/
 
 
-### Createsuperuser
+### Создание суперпользователя
 Для создания пользователя используйте команды:
-1) docker-compose exec web bash
-2) python manage.py createsuperuser
+```
+docker-compose exec web bash
+python manage.py createsuperuser
+```
 
 ### Запуск тестов
-1) docker-compose exec web bash
-2) pytest
+```
+docker-compose exec web bash
+pytest
+```
 
