@@ -4,7 +4,6 @@ from tests.factories import PostFactory
 
 @pytest.mark.django_db
 def test_post_create(client):
-
     post = PostFactory()
 
     response = client.post("/api/post/", post.__dict__)

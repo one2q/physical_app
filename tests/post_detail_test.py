@@ -12,4 +12,4 @@ def test_post_detail(client):
     assert response.status_code == 200
     assert response.data["name"] == post.name
     assert response.data["text"] == post.text
-    assert response.data["view_count"] == post.view_count+1
+    assert response.data["view_count"] == post.view_count + 1

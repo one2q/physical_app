@@ -35,20 +35,22 @@
 - python-dotenv - 0.21.1
 - requests - 2.28.2
 - drf-yasg - 1.21.4
-### Установка
+### Запуск приложения
 1) git clone https://github.com/one2q/physical_app
-2) docker-compose up -d --build
-3) http://127.0.0.1:8000
+2) переименуйте .env.ci файл на .env
+3) запустите docker-compose up -d --build
+4) http://127.0.0.1:8000
 
 ### Документация 
-- swager  url http://127.0.0.1:8000/swagger/
+- swagger  url http://127.0.0.1:8000/swagger/
 
 
 ### Createsuperuser
-- docker-compose exec web bash
-- python manage.py createsuperuser
+Для создания пользователя используйте команды:
+1) docker-compose exec web bash
+2) python manage.py createsuperuser
 
 ### Запуск тестов
-- docker-compose exec web bash
-- pytest
+1) docker-compose exec web bash
+2) pytest
 
