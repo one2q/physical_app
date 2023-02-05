@@ -3,7 +3,7 @@ from django.db import models
 
 class Post(models.Model):
     name = models.CharField(max_length=63)
-    text = models.CharField(max_length=2000)
+    text = models.TextField()
     view_count = models.IntegerField(default=0)
     created_at = models.DateField(auto_now_add=True)
 
@@ -12,7 +12,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    text = models.CharField(max_length=2000)
+    text = models.TextField()
     created_at = models.DateField(auto_now_add=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
 

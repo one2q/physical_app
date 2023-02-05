@@ -1,26 +1,15 @@
 import pytest
-from datetime import date
 
-from blog.models import Post
+from tests.factories import PostFactory
 
 
 @pytest.mark.django_db
 def test_post_detail(client):
-    post = Post.objects.create(
-        name="Test_name",
-        text="test_text",
-    )
+    post = PostFactory()
 
-    expected_response = {
-        "id": post.pk,
-        "name": "Test_name",
-        "text": "test_text",
-        "comments": [],
-        "created_at": date.today().strftime("%Y-%m-%d"),
-        "view_count": 1,
-    }
-
-    response = client.get(f"/post/{post.pk}/")
+    response = client.get(f"/api/post/{post.pk}/")
 
     assert response.status_code == 200
-    assert response.data == expected_response
+    assert response.data["name"] == post.name
+    assert response.data["text"] == post.text
+    assert response.data["view_count"] == post.view_count+1

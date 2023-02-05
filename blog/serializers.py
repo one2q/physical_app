@@ -8,6 +8,12 @@ class CommentListSerializer(serializers.ModelSerializer):
         fields = ["pk", "text"]
 
 
+class CommentCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ["pk", "text", "post"]
+
+
 class PostListSerializer(serializers.ModelSerializer):
     comments = CommentListSerializer(
         many=True, read_only=True

@@ -8,12 +8,12 @@ class PostFactory(factory.django.DjangoModelFactory):
         model = Post
 
     name = "Test_name"
-    text = "test_text"
+    text = "test_post_text"
 
 
 class CommentFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Comment
 
-    text = "some text"
+    text = "text comment"
     post = factory.SubFactory(PostFactory)
