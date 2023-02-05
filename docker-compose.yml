@@ -4,7 +4,7 @@ services:
     image: postgres
     container_name: physical_db
     env_file:
-      - ./.env
+      - ./.env.ci
     ports:
       - 5432:5432
 
@@ -15,6 +15,6 @@ services:
     ports:
       - 8000:8000
     env_file:
-      - ./.env
+      - ./.env.ci
     depends_on:
       - db
