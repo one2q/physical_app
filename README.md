@@ -1,6 +1,6 @@
 ## Тестовое задание для Backend-разработчика от Physical Transformation
 
-## Задача
+### Задача
 #### 1) Создать 2 модели с полями:
 - Модель Post:
      заголовок,
@@ -31,21 +31,25 @@
 - djangorestframework - 3.14.0
 
 ### Запуск приложения
-1) git clone https://github.com/one2q/physical_app
+1) ```git clone https://github.com/one2q/physical_app```
 2) переименуйте .env.ci файл на .env
-3) запустите docker-compose up -d --build
+3) ```docker-compose up -d --build```
 4) http://127.0.0.1:8000
 
 ### Документация 
 - swagger  url http://127.0.0.1:8000/swagger/
 
 
-### Createsuperuser
+### Создание суперпользователя
 Для создания пользователя используйте команды:
-1) docker-compose exec web bash
-2) python manage.py createsuperuser
+```
+docker-compose exec web bash
+python manage.py createsuperuser
+```
 
 ### Запуск тестов
-1) docker-compose exec web bash
-2) pytest
+```
+docker-compose exec web bash
+pytest
+```
 
