@@ -15,17 +15,10 @@ class CommentCreateSerializer(serializers.ModelSerializer):
 
 
 class PostListSerializer(serializers.ModelSerializer):
-    comments = CommentListSerializer(
-        many=True, read_only=True
-    )  # TODO можно и без этого поля, убрать?
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        if instance.comments.exists():
-            comment = instance.comments.all().order_by("-pk").first()
-            representation["comments"] = CommentListSerializer(comment).data
-        else:
-            representation["comments"] = None
+        representation["comments"] = CommentListSerializer(instance.comments.first()).data
         return representation
 
     class Meta:

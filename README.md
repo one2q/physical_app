@@ -29,12 +29,7 @@
 
 - Django - 4.1.6
 - djangorestframework - 3.14.0
-- djangorestframework - 3.14.0
-- psycopg2 - 2.9.5
-- pytest-django - 4.5.2
-- python-dotenv - 0.21.1
-- requests - 2.28.2
-- drf-yasg - 1.21.4
+
 ### Запуск приложения
 1) git clone https://github.com/one2q/physical_app
 2) переименуйте .env.ci файл на .env
