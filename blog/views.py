@@ -5,7 +5,7 @@ from blog.models import Post, Comment
 
 
 class PostViewSet(ModelViewSet):
-	queryset = Post.objects.all().select_related("comments")
+	queryset = Post.objects.prefetch_related("comments").all()
 	serializer_classes = {"retrieve": PostDetailSerializer, "list": PostListSerializer}
 
 	def get_serializer_class(self):
