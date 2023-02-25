@@ -8,10 +8,8 @@ from pht import settings
 urlpatterns = [
 	path("admin/", admin.site.urls),
 	path("api/", include(blog_router.urls)),
+	path('__debug__/', include('debug_toolbar.urls')),
 
 ]
 
 urlpatterns += doc_urls
-
-if settings.DEBUG:
-	urlpatterns += [path('__debug__/', include('debug_toolbar.urls')), ]
