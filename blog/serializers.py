@@ -15,10 +15,11 @@ class CommentCreateSerializer(serializers.ModelSerializer):
 
 
 class PostListSerializer(serializers.ModelSerializer):
-
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation["comments"] = CommentListSerializer(instance.comments.first()).data
+        representation["comments"] = CommentListSerializer(
+            instance.comments.first()
+        ).data
         return representation
 
     class Meta:
